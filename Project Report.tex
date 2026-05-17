@@ -45,26 +45,31 @@ Department of Physics and Astronomy~\\[0.3cm]
 
 \section{Introduction} 
 
-overview of particle detectors can talk about CMS as example [ref], what this library of classes aims to do (create particles and pass them through a detector object), overarching design (particle classes, sub detector classes stored in detector class, particles passed through detector object
+overview of particle detectors can talk about CMS as example [ref], what this library of classes aims to do (create particles and pass them through a detector object), overarching design (particle classes, sub detector classes stored in detector class, particles passed through detector object)
 
 \section{Design and Implementation}
 
+Detail overarching design further with inheritance diagram, reasons for following this inheritance path (ease of creating new classes, shared data members, encapsulation etc...). introduce particle and detector hierarchy's. mention try and catch error handling is implemented throughout. all files separated into interface and implementation
+
 \subsection{Particle Hierarchy}
+
+Pure abstract particle class (a generic particle object cant be created, follows rule of 5 due to having smart ptr to 4-momentum (enforces particle ownership of its 4 momentum), setters and getters for certain members and virtual print function, static ID counter) -> lepton, hadron and photon classes (lepton and hadron objects can be created which is a slight limitation, defines new members and has print function, photon class is stand alone in second tier as isnt a lepton or hadron) -> individual particle classes (specific data members, validation, how some of these members are assigned (relevant sub-detectors), helper functions). all derived classes follow rule of 0 as no manual memory handeling. all particle masses, and charges (bar pion) set in constructor
 
 \subsection{Detector Hierarchy}
 
+Pure abstract sub detector class (data members, setters getters, print functions) -> derived sub detector classes (detection of energy with traits of particles used where possible to determine which particles are detected, detector efficiency determined by random number generation, when particle traits not possible for determining if detected or not dynamic pointer cast used (muon and tau), this was also used when detectors set particle data memebers like track length and curvature, helper functions to validate material when needed) -> detector class (vector of shared ptrs to sub-detectors so rule of 5 used but no copy functions as logically theres one detector at a time and no need to copy, theyre defined but set to delete, this means move is used when adding sub-detectors in, function defined to add new sub-detectors so only name allocated when constructing object, determines particle type based off which detectors it sets off, prints detected energies, determines missing energy from calorimeters (from efficiencies and neutrinos), this means muons left out but this was the best way discuss later).
+
 \subsection{Utility Functions}
 
+file where lambda sort functions are defined (by energy and charge), defined here so that they can be used by anyone using the library as if they were in main this wouldnt be possible unless they had that file too.
 
 \section{Results}
 
+all details successfully print, the detection logic and sorting functions worked, relevant particle members were successfully updated missing energy worked, smearing due to detector efficiency was also successful. include sc of output interface
 
 \section{Discussion and Conclusions}
 
-
-
-
-
+all classes can be expanded upon with some natural extensions such as missing transverse momentum etc. missing energy isnt particularly useful with low energy neutrinos as the detector inefficiencies wash out the missing energy, use of dynamic pointer cast while efficient isnt very realistic as a detector doesnt inherently know what type a particle is in reality, this could be an area for improvement, try catch blocks good as they allow for user to decide how errors are dealt with and is good for the stack, lepton and hadron classes arent truely abstract plus other extensions etc.
 
 \clearpage
 
