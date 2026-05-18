@@ -52,10 +52,16 @@ This project sets out to create a C++ library that is able to simulate a particl
 
 \section{Design and Implementation}
 
-Both the particle and sub-detector classes follow an overarching inheritance chain model. The particle inheritance chain starts with an abstract base particle class that contains members which all particles own. The next tier down contains derived lepton, hadron, and photon classes, and the final tier contains specific leptons and hadrons. A similar model is followed for the sub-detector classes but with no intermediary tier. The particle inheritance chain is illustrated by Figure \begin{figure}
+Both the particle and sub-detector classes follow an overarching inheritance chain model. The particle inheritance chain starts with an abstract base particle class that contains members which all particles own. The next tier down contains derived lepton, hadron, and photon classes, and the final tier contains specific leptons and hadrons. A similar model is followed for the sub-detector classes but with no intermediary tier. A stand alone detector class is also present and acts to hold sub-detector objects for particles to be passed through. These two structures are shown in Figures 1 and 2 respectively. \begin{figure}
     \centering
     \includegraphics[width=1\linewidth]{particle.drawio.png}
-    \caption{Caption}
+    \caption{Inheritance tree diagram showing particle inheritance chain. Note: \texttt{four\_momentum} full type is \texttt{unique\_ptr<FourMomentum>}.}
+    \label{fig:placeholder}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{detector.drawio.png}
+ \caption{Inheritance tree diagram showing sub-detector inheritance chain and relationship to detector class. Note: \texttt{sub\_detectors} full type is \texttt{vector<unique\_ptr<SubDetector>>}.}
     \label{fig:placeholder}
 \end{figure}
 %Detail overarching design further with inheritance diagram, reasons for following this inheritance path (ease of creating new classes, shared data members, encapsulation etc...). introduce particle and detector hierarchy's. mention try and catch error handling is implemented throughout. all files separated into interface and implementation
