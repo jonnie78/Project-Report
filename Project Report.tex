@@ -64,7 +64,7 @@ Both the particle and sub-detector classes follow an overarching inheritance cha
  \caption{Inheritance tree diagram showing sub-detector inheritance chain and relationship to detector class. Note: \texttt{sub\_detectors} full type is \texttt{vector<unique\_ptr<SubDetector>>}.}
     \label{fig:placeholder}
 \end{figure}
-This inheritance structure was followed as it allowed for shared data to be encapsulated within the classes, meaning that derived classes can't alter data they don't need to. In addition to this, code repetition is reduced and new classes, as well as extensions of existing ones, are simpler to implement. 
+This inheritance structure was followed as it allowed for shared data to be encapsulated and centralised meaning that derived classes cannot access data they don't need to. In addition to this, code repetition is reduced and new classes, as well as extensions of existing ones, are simpler to implement. 
 %Detail overarching design further with inheritance diagram, reasons for following this inheritance path (ease of creating new classes, shared data members, encapsulation etc...). introduce particle and detector hierarchy's. mention try and catch error handling is implemented throughout. all files separated into interface and implementation
 
 \subsection{Particle Hierarchy}
