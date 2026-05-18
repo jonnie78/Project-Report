@@ -52,7 +52,12 @@ This project sets out to create a C++ library that is able to simulate a particl
 
 \section{Design and Implementation}
 
-Both the particle and sub-detector classes follow an overarching inheritance chain model. The particle inheritance chain starts with an abstract base particle class that contains members which all particles own. The next tier down contains derived lepton, hadron, and photon classes, and the final tier contains specific leptons and hadrons. A similar model is followed for the sub-detector classes but with no intermediary tier. These inheritance chains are illustrated by Figure 
+Both the particle and sub-detector classes follow an overarching inheritance chain model. The particle inheritance chain starts with an abstract base particle class that contains members which all particles own. The next tier down contains derived lepton, hadron, and photon classes, and the final tier contains specific leptons and hadrons. A similar model is followed for the sub-detector classes but with no intermediary tier. The particle inheritance chain is illustrated by Figure \begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{particle.drawio.png}
+    \caption{Caption}
+    \label{fig:placeholder}
+\end{figure}
 %Detail overarching design further with inheritance diagram, reasons for following this inheritance path (ease of creating new classes, shared data members, encapsulation etc...). introduce particle and detector hierarchy's. mention try and catch error handling is implemented throughout. all files separated into interface and implementation
 
 \subsection{Particle Hierarchy}
