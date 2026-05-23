@@ -149,7 +149,7 @@ void sort_by_energy(vector<shared_ptr<Particle>>& particles) {
 
 \section{Results}
 
-A vector of shared pointers to particles and a detector object containing a tracker, muon chamber, and electromagnetic and hadronic calorimeter were created to demonstrate the functionality of the classes. All particle objects printed their data and were successfully identified by the detector
+A vector of shared pointers to particles and a detector object containing a tracker, muon chamber, and electromagnetic and hadronic calorimeter were created to demonstrate the functionality of the classes. This was all contained within a \texttt{try} block which would catch any errors thrown during runtime, printing the error message when run. All particle objects printed their data and were successfully identified by the detector, with relevant data members updated and missing energy returned by the detector. The sort function also worked as intended. Snippets of what the user would see in their terminal are included below for a particle printing its data, a detector object printing its data, and a detector identifying the particle.
 %all details successfully print, the detection logic and sorting functions worked, relevant particle members were successfully updated missing energy worked, smearing due to detector efficiency was also successful. include sc of output interface
 
 \section{Discussion and Conclusions}
