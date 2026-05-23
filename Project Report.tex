@@ -135,7 +135,8 @@ Additionally, it uses particle charge to determine whether or not a particle in 
 
 \subsection{Utility Functions}
 
-file where lambda sort functions are defined (by energy and charge), defined here so that they can be used by anyone using the library as if they were in main this wouldnt be possible unless they had that file too.
+Functions that sort a vector of shared pointers to particles by charge and energy are defined in their own interface and implementation files to allow for any user to have access to them as they're defined outside of the main.cpp file. Both functions work by using the \texttt{sort()} function from the \texttt{<algorithm>} library, with the scope of the sort defined as the start and end of the vector. A lambda function is then defined as the condition which \texttt{sort()} uses to compare elements in the vector, with a lambda function used here as it allows for the function to be inline where its sued. The implementation of this is shown below for sorting by energy.
+%file where lambda sort functions are defined (by energy and charge), defined here so that they can be used by anyone using the library as if they were in main this wouldnt be possible unless they had that file too.
 
 \section{Results}
 
