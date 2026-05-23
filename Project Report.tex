@@ -112,7 +112,7 @@ Following this, the conditions for if a sub-detector has registered a hit are de
 \begin{minted}{cpp}
 bool tracker_hit = results.count("Tracker") && results["Tracker"] > 0;
 \end{minted}
-Finally, each of the sub-detector hit conditions, the true energy of the particle, and the particle charge are passed through a function called \texttt{detection\_logic()}, which is defined as a private helper function to help with code readability. \texttt{detection\_logic()} uses which detectors the particle set off and its mass to determine what type of particle it is, with the if statement structure following Table 1.
+A map was used as it allows the lookup of sub-detector energy directly via its type, making it independent of the order which sub-detectors appear in \texttt{sub\_detectors}, which is necessary as the user may add them in any order. Finally, each of the sub-detector hit conditions, the true energy of the particle, and the particle charge are passed through a function called \texttt{detection\_logic()}, which is defined as a private helper function to help with code readability. \texttt{detection\_logic()} uses which detectors the particle set off and its mass to determine what type of particle it is, with the if statement structure following Table 1.
 \begin{table}[h]
 \centering
 \begin{tabular}{cccc|l}
