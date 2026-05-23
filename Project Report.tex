@@ -149,7 +149,36 @@ void sort_by_energy(vector<shared_ptr<Particle>>& particles) {
 
 \section{Results}
 
-A vector of shared pointers to particles and a detector object containing a tracker, muon chamber, and electromagnetic and hadronic calorimeter were created to demonstrate the functionality of the classes. This was all contained within a \texttt{try} block which would catch any errors thrown during runtime, printing the error message when run. All particle objects printed their data and were successfully identified by the detector, with relevant data members updated and missing energy returned by the detector. The sort function also worked as intended. Snippets of what the user would see in their terminal are included below for a particle printing its data, a detector object printing its data, and a detector identifying the particle.
+A vector of shared pointers to particles and a detector object containing a tracker, muon chamber, and electromagnetic and hadronic calorimeter were created to demonstrate the functionality of the classes. This was all contained within a \texttt{try} block which would catch any errors thrown during runtime, printing the error message when run. All particle objects printed their data and were successfully identified by the detector, with relevant data members updated and missing energy returned by the detector. The sort function also worked as intended. Snippets of what the user would see in their terminal are shown below for a particle printing its data, a detector object printing its data, and a detector identifying the particle.
+\begin{minted}[fontsize=\footnotesize]{text}
+Particle type: Electron
+Particle ID: 1
+Rest mass (Mev): 0.511
+Antiparticle status: Is antiparticle
+Particle charge: 1
+4-momentum (Mev): (0.511, 1, 2, 3)
+Lepton number: -1
+Electron is isolated: False
+\end{minted}
+\begin{minted}[fontsize=\footnotesize]{text}
+Detector name: CMS
+Sub detectors contained in detector:
+ -Tracker made of Silicon with 5 layers.
+ -Electromagnetic calorimeter made of Lead Tungstate with 750 cells.
+ -Hadronic calorimeter made of Brass with 1000 cells.
+ -Muon chamber made of Aluminium with 250 chambers.
+\end{minted}
+\begin{minted}[fontsize=\footnotesize]{text}
+Detecting particle ID: 1
+True energy of particle: 0.511 MeV
+Energy detected by sub detector components:
+ -Tracker: 0.429974 MeV
+ -Electromagnetic Calorimeter: 0.495986 MeV
+ -Hadronic Calorimeter: 0 MeV
+ -Muon Chamber: 0 MeV
+
+Particle identified as: Positron
+\end{minted}
 %all details successfully print, the detection logic and sorting functions worked, relevant particle members were successfully updated missing energy worked, smearing due to detector efficiency was also successful. include sc of output interface
 
 \section{Discussion and Conclusions}
